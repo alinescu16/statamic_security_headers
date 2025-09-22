@@ -103,8 +103,8 @@ class ServiceProvider extends AddonServiceProvider
     {
         if ($this->app->runningInConsole()) {
             $this->publishes([
-                __DIR__.'/../resources/dist' => public_path('vendor/security-headers'),
-            ], 'security-headers'); // A single tag
+                __DIR__.'/../resources/dist/build' => public_path('vendor/security_headers'),
+            ], 'security-headers');
         }
 
         Nav::extend(function ($nav) {
