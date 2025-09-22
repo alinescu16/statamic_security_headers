@@ -1,6 +1,7 @@
 # Statamic Security Headers
 
 [![Statamic 4.0+](https://img.shields.io/badge/Statamic-4.0%2B-FF269E?style=for-the-badge&logo=statamic)](https://statamic.com)
+[![Latest Version](https://img.shields.io/packagist/v/alinandrei/security-headers.svg?style=for-the-badge)](https://packagist.org/packages/alinandrei/security-headers)
 
 A Statamic addon that allows you to easily manage and deploy crucial security headers for your website, complete with a powerful Content-Security-Policy (CSP) manager and violation reporting.
 
