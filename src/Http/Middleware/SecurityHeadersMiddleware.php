@@ -53,9 +53,10 @@ class SecurityHeadersMiddleware
             if ( isset($setting['enabled']) && (bool) $setting['enabled'] ) {
                 switch( $key ) {
                     case 'xFrameOptions':
+                        $enabled = $setting['enabled'];
                         $value = $setting['value'];
 
-                        if ( ! $value ) {
+                        if ( ! $value || ! $enabled ) {
                             break;
                         }
 
@@ -69,10 +70,22 @@ class SecurityHeadersMiddleware
                         break;
 
                     case 'xContentTypeOptions': 
+                        $enabled = $setting['enabled'];
+
+                        if ( ! $enabled ) {
+                            break;
+                        }
+
                         $response->headers->set('X-Content-Type-Options', 'nosniff');
                         break;
 
                     case 'strictTransportSecurity':
+                        $enabled = $setting['enabled'];
+
+                        if ( ! $enabled ) {
+                            break;
+                        }
+
                         $maxAge = $setting['maxAge'] * 31536000;
 
                         $value = "max-age=$maxAge";
@@ -89,6 +102,12 @@ class SecurityHeadersMiddleware
                         break;
 
                     case 'referrerPolicy':
+                        $enabled = $setting['enabled'];
+
+                        if ( ! $enabled ) {
+                            break;
+                        }
+
                         $value = $setting['value'];
 
                         if ( ! $value ) {
@@ -99,6 +118,12 @@ class SecurityHeadersMiddleware
                         break;
 
                     case 'contentSecurityPolicy':
+                        $enabled = $setting['enabled'];
+
+                        if ( ! $enabled ) {
+                            break;
+                        }
+                        
                         $value = $setting['policy'];
 
                         $reporting_platform = $this->settingsProvider->getReportingPlatformDriver();
