@@ -9,6 +9,7 @@ use Illuminate\Support\Facades\Storage;
 
 use Alinandrei\SecurityHeaders\Generators\SecurityHeadersPolicyGenerator;
 use Alinandrei\SecurityHeaders\Services\SecurityHeadersServiceProvider;
+use Alinandrei\SecurityHeaders\Services\SecurityHeadersGradeProvider;
 
 use Illuminate\Support\Facades\Log;
 use Illuminate\Http\JsonResponse;
@@ -20,11 +21,13 @@ class SecurityHeadersController extends Controller
      * Load settings and display the main addon view.
      * 
      * @param SecurityHeadersServiceProvider $settingsProvider
+     * @param SecurityHeadersGradeProvider $gradeProvider
      */
-    public function index(SecurityHeadersServiceProvider $settingsProvider)
+    public function index(SecurityHeadersServiceProvider $settingsProvider, SecurityHeadersGradeProvider $gradeProvider)
     {
         return view('security_headers::index', [
-            'settings' => $settingsProvider->getSettings()
+            'settings' => $settingsProvider->getSettings(),
+            'grade' => $gradeProvider->getGrade()
         ]);
     }
 

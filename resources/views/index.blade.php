@@ -3,5 +3,5 @@
 @section('title', 'Security Headers')
 
 @section('content')
-    <div id="security-headers-app" data-settings="{{ json_encode($settings) }}" v-cloak></div>
+    <div id="security-headers-app" data-settings="{{ json_encode($settings) }}" data-grade={{ json_encode($grade) }} v-cloak></div>
 @endsection

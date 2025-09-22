@@ -5,6 +5,7 @@ namespace Alinandrei\SecurityHeaders;
 use Alinandrei\SecurityHeaders\Http\Middleware\SecurityHeadersMiddleware;
 use Alinandrei\SecurityHeaders\Clients\SecurityHeadersReportingPlatformClient;
 use Alinandrei\SecurityHeaders\Services\SecurityHeadersServiceProvider;
+use Alinandrei\SecurityHeaders\Services\SecurityHeadersGradeProvider;
 use Alinandrei\SecurityHeaders\Generators\SecurityHeadersPolicyGenerator;
 use Alinandrei\SecurityHeaders\Contracts\SecurityHeadersReportingPlatform;
 
@@ -65,6 +66,10 @@ class ServiceProvider extends AddonServiceProvider
         
         $this->app->singleton(SecurityHeadersServiceProvider::class, function ($app) {
             return new SecurityHeadersServiceProvider($app);
+        });
+
+        $this->app->singleton(SecurityHeaderGradeProvider::class, function ($app) {
+            return new SecurityHeaderGradeProvider($app);
         });
 
         // Register the Reporting Platform Client factory
