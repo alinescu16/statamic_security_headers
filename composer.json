@@ -1,0 +1,36 @@
+{
+    "name": "alinandrei/security_headers",
+    "autoload": {
+        "psr-4": {
+            "Alinandrei\\SecurityHeaders\\": "src"
+        }
+    },
+    "autoload-dev": {
+        "psr-4": {
+            "Alinandrei\\SecurityHeaders\\Tests\\": "tests"
+        }
+    },
+    "require": {
+        "statamic/cms": "^5.0"
+    },
+    "require-dev": {
+    },
+    "config": {
+        "allow-plugins": {
+            "pixelfear/composer-dist-plugin": true
+        }
+    },
+    "extra": {
+        "statamic": {
+            "name": "Security_Headers",
+            "description": "Security_Headers addon"
+        },
+        "laravel": {
+            "providers": [
+                "Alinandrei\\SecurityHeaders\\ServiceProvider"
+            ]
+        }
+    },
+    "minimum-stability": "dev",
+    "prefer-stable": true
+}
