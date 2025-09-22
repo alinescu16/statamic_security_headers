@@ -82,11 +82,11 @@ class SecurityHeadersMiddleware
                     case 'strictTransportSecurity':
                         $enabled = $setting['enabled'];
 
-                        if ( ! $enabled ) {
-                            break;
-                        }
-
                         $maxAge = $setting['maxAge'] * 31536000;
+
+                        if ( ! $maxAge | ! $enabled ) {
+
+                        }
 
                         $value = "max-age=$maxAge";
 
@@ -104,13 +104,9 @@ class SecurityHeadersMiddleware
                     case 'referrerPolicy':
                         $enabled = $setting['enabled'];
 
-                        if ( ! $enabled ) {
-                            break;
-                        }
-
                         $value = $setting['value'];
 
-                        if ( ! $value ) {
+                        if ( ! $value || ! $enabled ) {
                             break;
                         }
 
@@ -160,7 +156,7 @@ class SecurityHeadersMiddleware
                     case 'permissionsPolicy':
                         $value = $setting['policy'];
 
-                        if ( ! $value ) {
+                        if ( ! $value || ! $enabled ) {
                             break;
                         }
                         
