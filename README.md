@@ -13,4 +13,4 @@ A Statamic addon that allows you to easily manage and deploy crucial security he
 -   **"Click to Allow" Policies:** Add blocked resources to your CSP directly from the statamic dashboard. Carefull! Always review the CSP directives and values before saving your settings.
 -   **Modern implementation** using Contracts, dynamically injected clients for different reporting platforms, Service containers and Middleware implementation for adding the headers to the responses.
 -   **One Time** purchase for a single domain.
-
+-   **Live Scoring** via MDN Observatory integration
