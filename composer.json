@@ -1,5 +1,6 @@
 {
     "name": "alinandrei/security_headers",
+    "version": "1.0.2", 
     "autoload": {
         "psr-4": {
             "Alinandrei\\SecurityHeaders\\": "src"

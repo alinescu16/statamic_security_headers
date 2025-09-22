@@ -28,6 +28,8 @@ class ServiceProvider extends AddonServiceProvider
             'resources/js/addon.js',
             'resources/css/addon.css',
         ],
+        'publicDirectory' => 'resources/dist',
+        'sourceDirectory' => 'resources/dist/build',
     ]; 
 
     /**
@@ -100,12 +102,6 @@ class ServiceProvider extends AddonServiceProvider
      * */
     public function bootAddon()
     {
-        if ($this->app->runningInConsole()) {
-            $this->publishes([
-                __DIR__.'/../resources/dist/build' => public_path('vendor/security_headers'),
-            ], 'security_headers'); 
-        }
-
         Nav::extend(function ($nav) {
             $nav->content('Security Headers')
                 ->section('Tools')
