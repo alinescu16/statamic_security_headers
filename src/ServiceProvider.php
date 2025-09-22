@@ -96,6 +96,12 @@ class ServiceProvider extends AddonServiceProvider
      */
     public function bootAddon()
     {
+        if ($this->app->runningInConsole()) {
+            $this->publishes([
+                __DIR__.'/../resources/dist' => public_path('vendor/security-headers'),
+            ], 'security-headers'); // A single tag
+        }
+
         Nav::extend(function ($nav) {
             $nav->content('Security Headers')
                 ->section('Tools')

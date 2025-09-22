@@ -3,17 +3,17 @@ import { mergePolicies } from '../utils/cspUtils';
 
 export function useSecurityHeaders() {
     const settings = ref({
-        xFrameOptions: { enabled: true, value: '' },
+        xFrameOptions: { enabled: true, value: null },
         xContentTypeOptions: { enabled: true },
-        strictTransportSecurity: { enabled: false, maxAge: 31536000, includeSubDomains: false, preload: false },
+        strictTransportSecurity: { enabled: true, maxAge: 1, includeSubDomains: false, preload: false },
         referrerPolicy: { enabled: true, value: 'no-referrer-when-downgrade' },
         contentSecurityPolicy: {
             enabled: false,
             policy: "default-src 'self'; script-src 'self' 'unsafe-inline'; style-src 'self' 'unsafe-inline';",
             reportOnly: false,
-            reportingEnabled: true,
+            reportingEnabled: false,
             reportingPlatform: {
-                reportingPlatformName: '',
+                reportingPlatformName: null,
                 reportingUrl: '',
                 reportingApiKey: '',
                 reportingOrganization: '',
@@ -38,8 +38,6 @@ export function useSecurityHeaders() {
         Statamic.$axios.post(cp_url('security_headers/generate_csp'))
             .then(response => {
                 if (response.status === 200 && !response.data.original) {
-                    console.log(response.data);
-                    
                     settings.value.contentSecurityPolicy.policy = mergePolicies(
                         settings.value.contentSecurityPolicy.policy,
                         response.data

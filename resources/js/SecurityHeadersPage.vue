@@ -10,15 +10,33 @@ import { useSecurityHeaders } from './composables/useSecurityHeaders';
 
 const { settings, saveSettings, generatePolicies } = useSecurityHeaders();
 
+const defaultSettings = settings.value;
+
 onMounted(() => {
+    let loadedSettings = {}; 
     const appElement = document.getElementById('security-headers-app');
+
     if (appElement && appElement.dataset.settings) {
-        const loadedSettings = JSON.parse(appElement.dataset.settings);
-        
-        if (Object.keys(loadedSettings).length > 0) {
-            settings.value = loadedSettings;
+        try {
+            const parsed = JSON.parse(appElement.dataset.settings);
+            if (parsed && typeof parsed === 'object') {
+                loadedSettings = parsed;
+            }
+        } catch (e) {
+            console.error('Failed to parse security settings:', e);
         }
     }
+
+    settings.value = {
+        ...defaultSettings,
+        ...loadedSettings,
+        xFrameOptions: { ...defaultSettings.xFrameOptions, ...loadedSettings.xFrameOptions },
+        xContentTypeOptions: { ...defaultSettings.xContentTypeOptions, ...loadedSettings.xContentTypeOptions },
+        strictTransportSecurity: { ...defaultSettings.strictTransportSecurity, ...loadedSettings.strictTransportSecurity },
+        referrerPolicy: { ...defaultSettings.referrerPolicy, ...loadedSettings.referrerPolicy },
+        contentSecurityPolicy: { ...defaultSettings.contentSecurityPolicy, ...loadedSettings.contentSecurityPolicy },
+        permissionsPolicy: { ...defaultSettings.permissionsPolicy, ...loadedSettings.permissionsPolicy },
+    };
 });
 </script>
 

@@ -1,5 +1,5 @@
 <script setup>
-import { defineProps, defineEmits, computed } from 'vue';
+import { defineProps, defineEmits, computed, onMounted } from 'vue';
 import ToggleSwitch from '../components/ToggleSwitch.vue';
 
 const props = defineProps({
@@ -12,6 +12,7 @@ const settings = computed({
     get: () => props.modelValue,
     set: (value) => emit('update:modelValue', value)
 });
+
 </script>
 
 <template>
@@ -58,12 +59,12 @@ const settings = computed({
                     </select>
                 </div>
 
-                <div v-if="settings.reportingPlatform.reportingPlatformName !== 'null'">
+                <div v-if="settings.reportingPlatform.reportingPlatformName !== null">
                     <label for="content_security_policy_reporting_url" class="block mt-2 text-sm font-medium">Reporting URL</label>
                     <input id="content_security_policy_reporting_url" type="text" v-model="settings.reportingPlatform.reportingUrl" class="w-full mt-2 input-text">
                 </div>
 
-                <div v-if="settings.reportingPlatform.reportingPlatformName !== 'null'">
+                <div v-if="settings.reportingPlatform.reportingPlatformName !== null">
                     <label for="content_security_policy_reporting_api_key" class="block mt-2 text-sm font-medium">Reporting API Key</label>
                     <input id="content_security_policy_reporting_api_key" type="text" v-model="settings.reportingPlatform.reportingApiKey" class="w-full mt-2 input-text">
                 </div>
