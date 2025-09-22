@@ -30,54 +30,54 @@ div.grade p {
     margin: 0;
 }
 
-span.powered_by {
+div.grade span.powered_by {
     font-size: 12px;
 }
 
-span.grade {
-    margin-left: 10px;
+div.grade span.grade {
+    margin-right: 15px;
 }
 
-.grade_a_plus,
-.grade_a,
-.grade_a_minus {
+div.grade .grade_a_plus,
+div.grade .grade_a,
+div.grade .grade_a_minus {
   /* Tailwind green-600 */
   background-color: #16a34a;
 }
 
-.grade_b_plus,
-.grade_b,
-.grade_b_minus {
+div.grade .grade_b_plus,
+div.grade .grade_b,
+div.grade .grade_b_minus {
   /* Tailwind lime-600 */
   background-color: #65a30d;
 }
 
-.grade_c_plus,
-.grade_c,
-.grade_c_minus {
+div.grade .grade_c_plus,
+div.grade .grade_c,
+div.grade .grade_c_minus {
   /* Tailwind amber-600 */
   background-color: #d97706;
 }
 
-.grade_d_plus,
-.grade_d,
-.grade_d_minus {
+div.grade .grade_d_plus,
+div.grade .grade_d,
+div.grade .grade_d_minus {
   /* Tailwind orange-600 */
   background-color: #ea580c;
 }
 
-.grade_f {
+div.grade .grade_f {
   /* Tailwind red-700 */
   background-color: #b91c1c;
 }
 
 
-[data-tooltip] {
+div.grade [data-tooltip] {
   position: relative;
   cursor: pointer;
 }
 
-[data-tooltip]::before {
+div.grade [data-tooltip]::before {
   content: attr(data-tooltip);
   
   position: absolute;
@@ -99,7 +99,7 @@ span.grade {
   z-index: 99;
 }
 
-[data-tooltip]::after {
+div.grade [data-tooltip]::after {
   content: '';
   position: absolute;
   
@@ -118,10 +118,10 @@ span.grade {
   z-index: 10;
 }
 
-[data-tooltip]:hover::before,
-[data-tooltip]:focus::before,
-[data-tooltip]:hover::after,
-[data-tooltip]:focus::after {
+div.grade [data-tooltip]:hover::before,
+div.grade [data-tooltip]:focus::before,
+div.grade [data-tooltip]:hover::after,
+div.grade [data-tooltip]:focus::after {
   visibility: visible;
   opacity: 1;
 }
