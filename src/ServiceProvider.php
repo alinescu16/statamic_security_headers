@@ -97,14 +97,13 @@ class ServiceProvider extends AddonServiceProvider
 
     /**
      * Add menu to nav bar
-     * 
-     */
+     * */
     public function bootAddon()
     {
         if ($this->app->runningInConsole()) {
             $this->publishes([
                 __DIR__.'/../resources/dist/build' => public_path('vendor/security_headers'),
-            ], 'security_headers');
+            ], 'security_headers'); 
         }
 
         Nav::extend(function ($nav) {
