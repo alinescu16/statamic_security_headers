@@ -7,7 +7,6 @@
     },
     "autoload-dev": {
         "psr-4": {
-            "Alinandrei\\SecurityHeaders\\Tests\\": "tests"
         }
     },
     "require": {
