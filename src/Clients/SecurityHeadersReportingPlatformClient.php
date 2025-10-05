@@ -5,9 +5,8 @@ use Alinandrei\SecurityHeaders\Contracts\SecurityHeadersReportingPlatform;
 
 use Alinandrei\SecurityHeaders\Clients\SecurityHeadersReportingPlatformSentryClient;
 
-use Illuminate\Support\Facades\Http;
-use Illuminate\Support\Facades\Log;
 use Illuminate\Contracts\Container\Container;
+
 
 class SecurityHeadersReportingPlatformClient
 {

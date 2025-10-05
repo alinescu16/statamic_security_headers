@@ -3,6 +3,8 @@
 namespace Alinandrei\SecurityHeaders\Contracts;
 
 use Illuminate\Http\JsonResponse;
+
+
 /**
  * Interface for all reporting platform clients.
  */

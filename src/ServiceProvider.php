@@ -11,11 +11,7 @@ use Alinandrei\SecurityHeaders\Contracts\SecurityHeadersReportingPlatform;
 
 use Statamic\Providers\AddonServiceProvider;
 use Statamic\Facades\CP\Nav;
-use Statamic\Facades\Preference;
-use Statamic\Facades\YAML;
-use Illuminate\Support\Facades\Storage;
 
-use Illuminate\Support\Facades\Log;
 
 class ServiceProvider extends AddonServiceProvider
 {

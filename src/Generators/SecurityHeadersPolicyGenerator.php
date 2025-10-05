@@ -1,12 +1,11 @@
 <?php
 namespace Alinandrei\SecurityHeaders\Generators;
 
-
-use Alinandrei\SecurityHeaders\Clients\SecurityHeadersReportingPlatformClient;
 use Alinandrei\SecurityHeaders\Contracts\SecurityHeadersReportingPlatform;
 
 use Illuminate\Support\Facades\Log;
 use Illuminate\Http\JsonResponse;
+
 
 class SecurityHeadersPolicyGenerator
 {

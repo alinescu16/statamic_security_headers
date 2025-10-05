@@ -21,7 +21,6 @@ All notable changes to this project will be documented in this file.
 ### Fixed
 - Build files are copyed to correctly named vendor folder
 
-
 ## 1.0.3 - 2025-09-34
 
 ### Fixed

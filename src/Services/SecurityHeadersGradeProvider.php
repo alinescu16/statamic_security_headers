@@ -7,7 +7,7 @@ use Illuminate\Contracts\Container\Container;
 use Exception;
 
 use Illuminate\Support\Facades\Http;
-use Illuminate\Support\Facades\Log;
+
 
 class SecurityHeadersGradeProvider
 {

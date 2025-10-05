@@ -3,16 +3,14 @@
 namespace Alinandrei\SecurityHeaders\Http\Controllers;
 
 use Illuminate\Http\Request;
-use Statamic\Facades\YAML;
 use Statamic\Http\Controllers\Controller;
-use Illuminate\Support\Facades\Storage;
 
 use Alinandrei\SecurityHeaders\Generators\SecurityHeadersPolicyGenerator;
 use Alinandrei\SecurityHeaders\Services\SecurityHeadersServiceProvider;
 use Alinandrei\SecurityHeaders\Services\SecurityHeadersGradeProvider;
 
-use Illuminate\Support\Facades\Log;
 use Illuminate\Http\JsonResponse;
+
 
 class SecurityHeadersController extends Controller
 {

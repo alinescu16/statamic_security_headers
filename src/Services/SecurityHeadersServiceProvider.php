@@ -10,6 +10,7 @@ use Illuminate\Support\Facades\Storage;
 use Statamic\Facades\YAML;
 use Exception;
 
+
 class SecurityHeadersServiceProvider
 {
     /**

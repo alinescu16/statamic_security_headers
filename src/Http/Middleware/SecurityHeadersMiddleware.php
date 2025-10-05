@@ -5,12 +5,8 @@ namespace Alinandrei\SecurityHeaders\Http\Middleware;
 use Closure;
 use Illuminate\Http\Request;
 use Symfony\Component\HttpFoundation\Response;
-use Illuminate\Support\Facades\Storage;
-use Statamic\Facades\YAML;
 
 use Alinandrei\SecurityHeaders\Services\SecurityHeadersServiceProvider;
-
-use Illuminate\Support\Facades\Log;
 
 
 class SecurityHeadersMiddleware
@@ -53,10 +49,9 @@ class SecurityHeadersMiddleware
             if ( isset($setting['enabled']) && (bool) $setting['enabled'] ) {
                 switch( $key ) {
                     case 'xFrameOptions':
-                        $enabled = $setting['enabled'];
                         $value = $setting['value'];
 
-                        if ( ! $value || ! $enabled ) {
+                        if ( ! $value ) {
                             break;
                         }
 
@@ -70,22 +65,14 @@ class SecurityHeadersMiddleware
                         break;
 
                     case 'xContentTypeOptions': 
-                        $enabled = $setting['enabled'];
-
-                        if ( ! $enabled ) {
-                            break;
-                        }
-
                         $response->headers->set('X-Content-Type-Options', 'nosniff');
                         break;
 
                     case 'strictTransportSecurity':
-                        $enabled = $setting['enabled'];
-
                         $maxAge = $setting['maxAge'] * 31536000;
 
-                        if ( ! $maxAge | ! $enabled ) {
-
+                        if ( ! $maxAge ) {
+                            break;
                         }
 
                         $value = "max-age=$maxAge";
@@ -102,11 +89,9 @@ class SecurityHeadersMiddleware
                         break;
 
                     case 'referrerPolicy':
-                        $enabled = $setting['enabled'];
-
                         $value = $setting['value'];
 
-                        if ( ! $value || ! $enabled ) {
+                        if ( ! $value ) {
                             break;
                         }
 
@@ -114,13 +99,11 @@ class SecurityHeadersMiddleware
                         break;
 
                     case 'contentSecurityPolicy':
-                        $enabled = $setting['enabled'];
+                        $value = $setting['policy'];
 
-                        if ( ! $enabled ) {
+                        if ( ! $value ) {
                             break;
                         }
-                        
-                        $value = $setting['policy'];
 
                         $reporting_platform = $this->settingsProvider->getReportingPlatformDriver();
 
@@ -156,10 +139,10 @@ class SecurityHeadersMiddleware
                     case 'permissionsPolicy':
                         $value = $setting['policy'];
 
-                        if ( ! $value || ! $enabled ) {
+                        if ( ! $value ) {
                             break;
                         }
-                        
+
                         $response->headers->set( 'Permissions-Policy', $value );
                         break;
                 }
