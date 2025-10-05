@@ -3,9 +3,9 @@ select {
     border-radius: 5px;
     color: rgb(187 189 192 / var(--tw-text-opacity));
     background-color: rgb(36 38 40 / var(--tw-bg-opacity));
+    border-color: rgb(23 23 23 / var(--tw-border-opacity));
     --tw-text-opacity: 1;
     --tw-border-opacity: 1;
-    border-color: rgb(23 23 23 / var(--tw-border-opacity));
     --tw-bg-opacity: 1;
 }
 

@@ -28,6 +28,7 @@ class ServiceProvider extends AddonServiceProvider
         'buildDirectory' => 'build',
     ]; 
 
+    
     /**
      * Define routes
      * 
@@ -37,6 +38,7 @@ class ServiceProvider extends AddonServiceProvider
         // 'actions' => __DIR__.'/../routes/actions.php',
         // 'web' => __DIR__.'/../routes/web.php',
     ];
+
 
     /**
      * Register the middleware that adds the headers to the next request
@@ -52,6 +54,7 @@ class ServiceProvider extends AddonServiceProvider
         // 'cp' => [],
         // 'statamic.cp' => []
     ];
+
 
     /**
      * Register in the Service Container the Reporting Platform Client Factory 
