@@ -1,6 +1,7 @@
 {
     "name": "alinandrei/security_headers",
-    "version": "1.0.2", 
+    "description": "A Statamic addon to manage security headers.",
+    "license": "proprietary",
     "autoload": {
         "psr-4": {
             "Alinandrei\\SecurityHeaders\\": "src"
