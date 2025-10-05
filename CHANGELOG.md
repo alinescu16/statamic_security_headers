@@ -30,3 +30,8 @@ All notable changes to this project will be documented in this file.
 
 ### Fixed
 - Build files are copied from $vite config property instead of manually being published
+
+## 1.0.5 - 2025-09-34
+
+### Fixed
+- Reporting URI and Reporting API Key no longer display if there is not a Reporting Platform selected
