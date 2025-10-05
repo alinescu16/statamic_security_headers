@@ -28,6 +28,8 @@ class ServiceProvider extends AddonServiceProvider
             'resources/js/addon.js',
             'resources/css/addon.css',
         ],
+        'publicDirectory' => 'resources',
+        'buildDirectory' => 'build',
     ]; 
 
     /**
@@ -68,8 +70,8 @@ class ServiceProvider extends AddonServiceProvider
             return new SecurityHeadersServiceProvider($app);
         });
 
-        $this->app->singleton(SecurityHeaderGradeProvider::class, function ($app) {
-            return new SecurityHeaderGradeProvider($app);
+        $this->app->singleton(SecurityHeadersGradeProvider::class, function ($app) {
+            return new SecurityHeadersGradeProvider($app);
         });
 
         // Register the Reporting Platform Client factory
@@ -100,12 +102,6 @@ class ServiceProvider extends AddonServiceProvider
      * */
     public function bootAddon()
     {
-        if ($this->app->runningInConsole()) {
-            $this->publishes([
-                __DIR__.'/../resources/dist/build' => public_path('vendor/security_headers/build'),
-            ], 'security_headers'); 
-        }
-
         Nav::extend(function ($nav) {
             $nav->content('Security Headers')
                 ->section('Tools')
