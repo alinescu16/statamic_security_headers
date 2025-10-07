@@ -60,6 +60,10 @@ class SecurityHeadersGradeProvider
             );
         }
         
-        return array('grade' => '1');
+        return array(
+            'details_url' => '#',
+            'score' => '-',
+            'grade' => '-'
+        );
     }
 }
